@@ -1,15 +1,27 @@
 {
-  "name": "create-project",
+  "name": "@firnnauriel/create-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A CLI to bootstrap my new projects",
+  "main": "src/index.js",
+  "bin": {
+    "@firnnauriel/create-project": "bin/create-project",
+    "create-project": "bin/create-project"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "cli",
+    "create-project"
+  ],
+  "author": "Alfredo Dimaunahan",
+  "license": "MIT",
   "dependencies": {
-    "esm": "^3.2.25"
+    "arg": "^4.1.1",
+    "esm": "^3.2.25",
+    "inquirer": "^6.5.0"
   }
 }
