@@ -1,5 +1,6 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
+import { createProject } from './main';
 
 function parseArgumentsIntoOptions(rawArgs) {
     const args = arg(
@@ -25,7 +26,7 @@ function parseArgumentsIntoOptions(rawArgs) {
 }
 
 async function promptForMissingOptions(options) {
-    const defaultTemplate = 'JavaScript';
+    const defaultTemplate = 'javascript';
     if (options.skipPrompts) {
         return {
             ...options,
@@ -39,7 +40,7 @@ async function promptForMissingOptions(options) {
             type: 'list',
             name: 'template',
             message: 'Please choose which project template to use',
-            choices: ['JavaScript', 'TypeScript'],
+            choices: ['javascript', 'typescript'],
             default: defaultTemplate,
         });
     }
@@ -64,5 +65,5 @@ async function promptForMissingOptions(options) {
 export async function cli(args) {
     let options = parseArgumentsIntoOptions(args);
     options = await promptForMissingOptions(options);
-    console.log(options);
+    await createProject(options);
 }
